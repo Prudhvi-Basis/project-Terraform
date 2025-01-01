@@ -1,5 +1,5 @@
 variable "url" {
-  default = "example.com"
+  default = "Prabhas.com"
 }  # Declaring a variable in terraform
 
 output "url" {
