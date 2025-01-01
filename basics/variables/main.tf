@@ -2,9 +2,10 @@ variable "url" {
   default = "Prabhas.com"
 }  # Declaring a variable in terraform
 
-output "url" {
+output "URL" {
   value = var.url
 }
 
-output "url1"
+output "URL1"
   value = "URL - ${var.URL}"
+}
