@@ -1,3 +1,3 @@
-output "URL" {
-  value = "WWW.GooGle.com"
+output "url" {
+  value = "WWW.Prabhas.com"
 }
