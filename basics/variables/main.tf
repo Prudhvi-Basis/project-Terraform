@@ -5,7 +5,6 @@ variable "url" {
 # output "URL" {
 #   value = var.url
 # }
-
-output "URL1"
-  value = "url - ${var.url}"
+output "URL1" {
+  value = "URL - ${var.url}"
 }
