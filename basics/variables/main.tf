@@ -7,5 +7,5 @@ output "URL" {
 }
 
 output "URL1"
-  value = "URL - ${var.URL}"
+  value = "URL - ${var.url}"
 }
