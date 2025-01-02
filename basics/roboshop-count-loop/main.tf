@@ -1,16 +1,16 @@
 variable "instances" {
-  default = {
-    frontend = {}
-    cart = {}
-    catalogue = {}
-    user = {}
-    shipping = {}
-    payment = {}
-    mysql = {}
-    mongodb = {}
-    rabbitmq = {}
-    redis = {}
-  }
+  default = [
+    "frontend",
+    "cart",
+    "catalogue",
+    "user",
+    "shipping",
+    "payment",
+    "mysql",
+    "mongodb",
+    "rabbitmq",
+    "redis"
+  ]
 }
 resource "aws_instance" "instance" {
   count = length(var.instances)
@@ -22,7 +22,7 @@ resource "aws_instance" "instance" {
 
   }
 }
-resource "aws_route53_record" "records" {
+resource "aws_route53_record" "record" {
   count = length(var.instances)
   zone_id = "Z00196431INWTJ0O5YT57"
   name    = "${var.instances[count.index]}-dev.devops11.online"
