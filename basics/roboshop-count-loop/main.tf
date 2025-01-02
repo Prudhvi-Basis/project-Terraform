@@ -22,11 +22,11 @@ resource "aws_instance" "instance" {
 
   }
 }
-resource "aws_route53_record" "mysql" {
+resource "aws_route53_record" "records" {
   count = length(var.instances)
   zone_id = "Z00196431INWTJ0O5YT57"
   name    = "${var.instances[count.index]}-dev.devops11.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.mysql.private_ip]
+  records = [aws_instance.instance[count.index].private_ip]
 }
