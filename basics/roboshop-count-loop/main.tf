@@ -13,20 +13,23 @@ variable "instances" {
   }
 }
 resource "aws_instance" "instance" {
-  count = length(var.instances)
+  for_each = var.instances
   ami = "ami-09c813fb71547fc4f"
   instance_type = "t3.small"
   vpc_security_group_ids = ["sg-0b308c7134616a7ce"]
   tags = {
-    Name = var.instances[count.index]
+     Name = each.key #var.instances[count.index] for list
 
   }
 }
 resource "aws_route53_record" "record" {
-  count = length(var.instances)
+  for_each = var.instances
   zone_id = "Z00196431INWTJ0O5YT57"
-  name    = "${var.instances[count.index]}-dev.devops11.online"
+  name    = "${each.key}-dev.devops11.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.instance[count.index].private_ip]
+  records = [aws_instance.instance[each.key].private_ip]
 }
+
+#####
+A BIG NOTE HERE WHEN LIST IS USED WE USE COUNT = LENGTH(VVAR.INSTANCES) AND WHEN MAP IS USED WE USE FOR_EACH = VAR.INSTANCES
