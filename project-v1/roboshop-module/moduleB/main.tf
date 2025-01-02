@@ -1,4 +1,10 @@
+variable "instances" {
+  default = [
+    testA,
+    testB
 
+  ]
+}
 module "ec2" {
   count = length(var.instances)
 
@@ -9,10 +15,3 @@ module "ec2" {
 # module "route53" {
 #   source = "./route53"
 # }
-variable "instances" {
-  default = [
-    testA,
-    testB
-
-  ]
-}
