@@ -1,16 +1,16 @@
 variable "instances" {
-  default = [
-    "frontend",
-    "cart",
-    "catalogue",
-    "user",
-    "shipping",
-    "payment",
-    "mysql",
-    "mongodb",
-    "rabbitmq",
-    "redis"
-  ]
+  default = {
+    frontend = {}
+    cart = {}
+    catalogue = {}
+    user = {}
+    shipping = {}
+    payment = {}
+    mysql = {}
+    mongodb = {}
+    rabbitmq = {}
+    redis = {}
+  }
 }
 resource "aws_instance" "instance" {
   count = length(var.instances)
