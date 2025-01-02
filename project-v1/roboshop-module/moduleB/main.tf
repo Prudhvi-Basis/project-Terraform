@@ -1,7 +1,7 @@
 variable "instances" {
   default = [
-    testA,
-    testB
+    "testA",
+    "testB"
 
   ]
 }
