@@ -33,5 +33,11 @@ resource "aws_instance" "instance" {
     Name = "${var.component_name}-${var.env}"
 
   }
+  provisioner "local-exec" {
+    command = <<EOL
+cd /home/ec2-user/Project-Ansible
+"ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321  -e  app_name=${var.component_name} -e env=${var.env} frontend.yml"
 
+EOL
+  }
 }
