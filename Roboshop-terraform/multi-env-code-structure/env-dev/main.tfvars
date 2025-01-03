@@ -12,7 +12,7 @@ app_instances = {
     app_port = 8080
     instance_type = "t3.small"
   }
-  shopping = {
+  shipping = {
     app_port = 8080
     instance_type = "t3.small"
   }
