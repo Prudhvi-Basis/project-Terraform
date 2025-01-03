@@ -21,5 +21,5 @@ prod-apply:
 prod-destroy:
 	rm -rf .terraform
 	terraform init -backend-configure=env-prod/state.tfvars
-	terraform destroy -auto-approve -var-file=env-prod/main.tfva
+	terraform destroy -auto-approve -var-file=env-prod/main.tfvars
 
