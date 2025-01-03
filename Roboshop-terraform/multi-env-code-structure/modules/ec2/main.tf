@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/null"
       version = "3.2.2"
     }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.54.1"
+    }
   }
 }
 resource "aws_security_group" "sg" {
@@ -59,8 +63,8 @@ resource "null_resource" "ansible-pull" {
 
   }
 }
-}
-resource "null_resource" "record" {
+
+resource "aws_route53_record" "record" {
   zone_id = var.zone_id
   name    = "${var.component_name}-${var.env}.${var.domain_name}"
   type    = "A"
