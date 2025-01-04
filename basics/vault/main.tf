@@ -10,7 +10,7 @@ data "vault_kv_secret_v2" "example" {
   mount = "test"
   name  = "my_credentials"
 }
-resource "local_file" "" {
+resource "local_file" "foo" {
   content = jsonencode(data.vault_kv_secret_v2.example.data_json)
   filename = "/tmp/secret"
 }
