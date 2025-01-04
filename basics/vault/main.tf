@@ -6,6 +6,10 @@ provider "vault" {
 }
 variable "vault_token" {}
 
+data "vault_generic_secret" "example" {
+  path = "test/my_credentials"
+}
+
 data "vault_kv_secret_v2" "example" {
   mount = "test"
   name  = "my_credentials"
